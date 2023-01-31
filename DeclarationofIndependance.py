@@ -29,3 +29,12 @@ def gasLevelGauge():
 
 print(gasLevelGauge())
 
+# Variable calling gasLevelGauge function to store its value
+gasLevelIndicator = gaslevelGauge()
+ 
+# List of Gas Stations Function
+ 
+def listOfGasStations():
+    gasStations = ["shell", "Costco", "Sam's Club", "Buc-ee's", "7/11", "Speedway", "Meijer"]
+    gasStationNearby = random.choice(gasStations)
+    return gasStationNearby

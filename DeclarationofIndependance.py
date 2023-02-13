@@ -1,6 +1,9 @@
 # Programmer: Lauren Dunning
-# Date Merged: 2.6.2023
-# Merged Welcome Screen and Gasoline Branches - Stable
+# Date Merged: 2.13.2023
+# Merged Welcome Screen, Gasoline, and Weather - Stable
+
+# Date: N/A
+# Program: Welcome Screen
 
 """
 Our Welcome screen will start out program letting drivers know that the InfoTechCenter is loading
@@ -32,7 +35,7 @@ while x != 20:
         print('\033[1;32;35m Done!')
 
 # Date: 1.31.2023
-# Program: InfoTech Center 4.0 - Gasoline
+# Program: Gasoline
 
 """
 We will create a Function that will tell us out Fuel Gauge level
@@ -91,7 +94,39 @@ def gasLevelAlert():
         print("Your gas tank is full - Yeah! - Congratulations")
         
 
+# Date: 2.08.2023
+# Program: Weather
 
-#Call Function Here
+# Create weather condition in a list and choose it randomly
+def weather():
+	weatherForecast = ["snow", "blizzard", "rain", "foggy", "windy", "icy", "sunshine"]
+	weatherCondition = random.choice(weatherForecast)
+	return weatherCondition
+
+# Variable to call weather() once in our VRS()
+weatherAlert = weather()
+
+# VRS() to respond to the weather condition
+def vehicleResponseSystem():
+	if weatherAlert == "snow":
+		print("\nNWS has changed your alarm by 15 minutes because of the weather forecast of",weatherAlert,".")
+		print("VRS has been engaged only allowing your vehicle to go 45 MPH")
+	elif weatherAlert == "blizzard":
+		print("\nNWS has changed your alarm by 30 minutes because of the weather forecast of",weatherAlert,".")
+		print("VRS has been engaged only allowing your vehicle to go 35 MPH")
+	elif weatherAlert == "icy":
+		print("\nNWS has changed your alarm by 60 minutes because of the weather forecast of",weatherAlert,"conditions, please drive carefully.")
+		print("VRS has been engaged only allowing your vehicle to go 25 MPH")
+	elif weatherAlert == "rain":
+		print("\nNWS is calling for",weatherAlert,",please drive carefully.")
+	elif weatherAlert == "foggy":
+		print("\nNWS is calling for",weatherAlert,"conditions, please drive carefully.")
+	elif weatherAlert == "windy":
+		print("\nNWS is calling for",weatherAlert,"conditions, please drive carefully.")
+	else:
+		print("\nNWS is calling for",weatherAlert,", drive safely and have a wonderful day.")
+
+
+# Call functions here
 gasLevelAlert()
 vehicleResponseSystem()

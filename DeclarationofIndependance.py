@@ -2,18 +2,18 @@
 # Date Merged: 2.13.2023
 # Merged Welcome Screen, Gasoline, and Weather - Stable
 
+#Import Libraries Here
+import time
+import sys
+import random
+from time import sleep
+
 # Date: N/A
 # Program: Welcome Screen
 
 """
 Our Welcome screen will start out program letting drivers know that the InfoTechCenter is loading
 """
-
-#Import Libraries Here
-import time
-import sys
-import random
-from time import sleep
 
 print('\n\033[1;34;48m Welcome to InfoTechCenter')
 
@@ -32,13 +32,13 @@ while x != 20:
     if a == 4:
         a = 0
     if x == 20:
-        print('\033[1;32;35m Done!')
+        print('\033[1;32;35m Done!\n')
 
 # Date: 1.31.2023
 # Program: Gasoline
 
 """
-We will create a Function that will tell us out Fuel Gauge level
+We will create a Function that will tell us our fuel gauge level
     - Create a List with Gas Levels
     - Randomize and choose from the list to determine our gas level
 
@@ -47,7 +47,7 @@ Create a Functon to determine our closest Gas Station
     - Randomly choose a gas station from the list
 
 Create a Function to determine our gas level and closest gas station
-    - PrintGas level
+    - Print Gas level
     - Print Closest Gas Station
 """
 
@@ -57,14 +57,13 @@ def gasLevelGauge():
     currentGasLevel = random.choice(gasLevelList)
     return currentGasLevel
 
-
 # Variable calling gasLevelGauge function to store its value
 gasLevelIndicator = gasLevelGauge()
  
 # List of Gas Stations Function
  
 def listOfGasStations():
-    gasStations = ["shell", "Costco", "Sam's Club", "Buc-ee's", "7/11", "Speedway", "Meijer"]
+    gasStations = ["Shell", "Costco", "Sam's Club", "Buc-ee's", "7/11", "Speedway", "Meijer"]
     gasStationNearby = random.choice(gasStations)
     return gasStationNearby
 
@@ -75,23 +74,23 @@ def gasLevelAlert():
     if gasLevelIndicator == "Empty":
         print("***WARNING YOUR TANK IS EMPTY***")
         sleep(1)
-        print("Calling Emergency Contact")
+        print("Calling Emergency Contact.\n")
     elif gasLevelIndicator == "Low":
         print("*****Warning*****")
         sleep(1)
-        print("Your gas tank is extremely low; checking Google Maps for the closest gas station.")
+        print("Your gas tank is extremely low; checking Google Maps for the closest gas station.\n")
         sleep(1)
-        print("The closest gas station is", listOfGasStations(),"which is",milesToGasStationLow, "miles away.")
+        print("The closest gas station is", listOfGasStations(),"which is",milesToGasStationLow, "miles away.\n")
     elif gasLevelIndicator == "Quarter Tank":
         print("***Warning***")
         sleep(1)
-        print("Your gas tank is at a Quarter Tank and the closest gas station is" ,listOfGasStations, "which is" ,milesToGasStationQuarterTank, "miles away.")
+        print("Your gas tank is at a quarter tank and the closest gas station is",listOfGasStations(),"which is",milesToGasStationQuarterTank,"miles away.\n")
     elif gasLevelIndicator == "Half Tank":
-        print("Your gas tank is half full which is plenty of gas to make it to your destinations today.")
+        print("Your gas tank is half full which is plenty of gas to make it to your destinations today.\n")
     elif gasLevelIndicator == "Three Quarter Tank":
-        print("Your gas tank is at three quarters of a tank which is plenty of gas to make it to your destination today.")
+        print("Your gas tank is at three quarters of a tank which is plenty of gas to make it to your destination today.\n")
     else:
-        print("Your gas tank is full - Yeah! - Congratulations")
+        print("Your gas tank is full - Yeah! - Congratulations\n")
         
 
 # Date: 2.08.2023
@@ -99,7 +98,7 @@ def gasLevelAlert():
 
 # Create weather condition in a list and choose it randomly
 def weather():
-	weatherForecast = ["snow", "blizzard", "rain", "foggy", "windy", "icy", "sunshine"]
+	weatherForecast = ["snow.", "blizzard.", "rain", "foggy", "windy", "icy", "sunshine,"]
 	weatherCondition = random.choice(weatherForecast)
 	return weatherCondition
 
@@ -108,25 +107,29 @@ weatherAlert = weather()
 
 # VRS() to respond to the weather condition
 def vehicleResponseSystem():
-	if weatherAlert == "snow":
-		print("\nNWS has changed your alarm by 15 minutes because of the weather forecast of",weatherAlert,".")
+	if weatherAlert == "snow.":
+		print("\nNWS has changed your alarm by 15 minutes because of the weather forecast of",weatherAlert,)
 		print("VRS has been engaged only allowing your vehicle to go 45 MPH")
-	elif weatherAlert == "blizzard":
-		print("\nNWS has changed your alarm by 30 minutes because of the weather forecast of",weatherAlert,".")
+	elif weatherAlert == "blizzard.":
+		print("\nNWS has changed your alarm by 30 minutes because of the weather forecast of",weatherAlert,)
 		print("VRS has been engaged only allowing your vehicle to go 35 MPH")
 	elif weatherAlert == "icy":
-		print("\nNWS has changed your alarm by 60 minutes because of the weather forecast of",weatherAlert,"conditions, please drive carefully.")
+		print("\nNWS has changed your alarm by 60 minutes because of the weather forecast of",weatherAlert,"conditions; please drive carefully.")
 		print("VRS has been engaged only allowing your vehicle to go 25 MPH")
 	elif weatherAlert == "rain":
 		print("\nNWS is calling for",weatherAlert,",please drive carefully.")
 	elif weatherAlert == "foggy":
-		print("\nNWS is calling for",weatherAlert,"conditions, please drive carefully.")
+		print("\nNWS is calling for",weatherAlert,"conditions; please drive carefully.")
 	elif weatherAlert == "windy":
-		print("\nNWS is calling for",weatherAlert,"conditions, please drive carefully.")
+		print("\nNWS is calling for",weatherAlert,"conditions; please drive carefully.")
 	else:
-		print("\nNWS is calling for",weatherAlert,", drive safely and have a wonderful day.")
+		print("\nNWS is calling for",weatherAlert,"drive safely and have a wonderful day.")
 
 
 # Call functions here
+print("Checking gas tank levels...\n")
+sleep(1)
 gasLevelAlert()
+print("Checking VRS system conditions...")
+sleep(1)
 vehicleResponseSystem()

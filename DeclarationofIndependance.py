@@ -8,7 +8,6 @@ import sys
 import random
 from time import sleep
 
-# Date: N/A
 # Program: Welcome Screen
 
 """
@@ -34,7 +33,6 @@ while x != 20:
     if x == 20:
         print('\033[1;32;35m Done!\n')
 
-# Date: 1.31.2023
 # Program: Gasoline
 
 """
@@ -93,7 +91,6 @@ def gasLevelAlert():
         print("Your gas tank is full - Yeah! - Congratulations\n")
         
 
-# Date: 2.08.2023
 # Program: Weather
 
 # Create weather condition in a list and choose it randomly

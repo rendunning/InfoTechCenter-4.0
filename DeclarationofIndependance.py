@@ -70,7 +70,6 @@ def gasLevelAlert():
 
 gasLevelAlert()
 
-
 # Programmer: Lucas Campbell
 # Date: 2/21/2023
 # Program: Navigation
@@ -90,47 +89,47 @@ time.sleep(1)
 
 
 def getDistanceToHouse():
-	# Get house distance from user and store as a variable
-	houseAddress = input("What is the address of your house? ")
+    # Get house distance from user and store as a variable
+    houseAddress = input("What is the address of your house? ")
 
-	# Calculating distance to house
-	houseDistance = random.randint(1, 200)
+    # Calculating distance to house
+    houseDistance = random.randint(1, 200)
 
-	# Tell user how far their house is
-	time.sleep(1)
-	print("Your house located at " + houseAddress + " is currently " + str(houseDistance) + " miles away.")
-	time.sleep(1)
+    # Tell user how far their house is
+    time.sleep(1)
+    print("Your house located at " + houseAddress + " is currently " + str(houseDistance) + " miles away.")
+    time.sleep(1)
 
 
 def generateRandomMiles():
-	# This function generates a random number for use in the getDirections function
-	randomMiles = random.randint(1, 5)
-	return randomMiles
+    # This function generates a random number for use in the getDirections function
+    randomMiles = random.randint(1, 5)
+    return randomMiles
 
 
 def getDirections():
-	# Create list of possible driving manuevers to describe directions
-	possibleManuevers = ["Left turn", "Right turn", "Slight left turn", "Slight right turn", "U-Turn", "Go straight"]
+    # Create list of possible driving manuevers to describe directions
+    possibleManuevers = ["Left turn", "Right turn", "Slight left turn", "Slight right turn", "U-Turn", "Go straight"]
 
-	# Create list of possible sentence joiners
-	conjunctions = [" and ", " then "]
+    # Create list of possible sentence joiners
+    conjunctions = [" and ", " then "]
 
-	# Update user
-	print("Generating your directions now... please wait.")
-	time.sleep(1)
-	print("Directions have been successfully generated. Please follow the following directions carefully")
+    # Update user
+    print("Generating your directions now... please wait.")
+    time.sleep(1)
+    print("Directions have been successfully generated. Please follow the following directions carefully")
 
-	# Show directions
-	x = 0
-	while x < 10:
-		print(str(possibleManuevers[random.randint(0, len(possibleManuevers)) - 1]) + " for " + str(
-			generateRandomMiles()) + " miles")
-		print(conjunctions[random.randint(0, len(conjunctions)) - 1])
-		x = x + 1
-		time.sleep(1)
+    # Show directions
+    x = 0
+    while x < 10:
+        print(str(possibleManuevers[random.randint(0, len(possibleManuevers)) - 1]) + " for " + str(
+            generateRandomMiles()) + " miles")
+        print(conjunctions[random.randint(0, len(conjunctions)) - 1])
+        x = x + 1
+        time.sleep(1)
 
-	time.sleep(1)
-	print("You have reached your destination!")
+    time.sleep(1)
+    print("You have reached your destination!")
 
 
 # Call functions

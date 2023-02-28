@@ -141,17 +141,17 @@ def systemRadio():
         1: {
             "name": "Station 1",
             "genre": "Pop",
-            "songs": ["song1.mp3", "song2.mp3", "song3.mp3"]
+            "songs": ["'golden hour' by JVKE", "'Kill Bill' by SZA", "'As It Was' by Harry Styles"]
         },
         2: {
             "name": "Station 2",
             "genre": "Rock",
-            "songs": ["song4.mp3", "song5.mp3", "song6.mp3"]
+            "songs": ["'One' by Metallica", "'Numb' by Linkin park", "'Stairway to Heaven' by Led Zeppelin"]
         },
         3: {
             "name": "Station 3",
             "genre": "Hip Hop",
-            "songs": ["song7.mp3", "song8.mp3", "song9.mp3"]
+            "songs": ["'XXX Ft. U2' by Kendrick Lamar", "'Without Me' by Eminem", "'The Worst Guys' by Childish Gambino"]
         }
     }
 

@@ -2,21 +2,14 @@
 # Date: 1.20.2023
 # Program: InfoTechCenter Upgrades
 
-"""
-Our Welcome screen will start out program letting drivers know that the InfoTechCenter is loading
-"""
 
-#Import Libraries Here
-import time
-import sys
+# This function will take the input of your house and it will tell you how far away it is from your current location.
 
-print('\n\033[1;34;48m Welcome to InfoTechCenter')
 
-x = 0
-a = 0
+# Import libraries here
+import random
+import time	
 
-time.sleep(2)
-print('')
 
 while x != 20:
     x += 1
@@ -33,42 +26,35 @@ while x != 20:
 
 # Date: 1.31.2023
 # Program: InfoTech Center 4.0 - Gasoline
+# Show loading message
+print("Navigation Services 1.0 is loading...")
+time.sleep(3)
+print("Navigation has loaded successfuly.")
+time.sleep(1)
 
-"""
-We will create a Function that will tell us out Fuel Gauge level
-    - Create a List with Gas Levels
-    - Randomize and choose from the list to determine our gas level
-
-Create a Functon to determine our closest Gas Station
-    - Create a List of gas stations
-    - Randomly choose a gas station from the list
-
-Create a Function to determine our gas level and closest gas station
-    - PrintGas level
-    - Print Closest Gas Station
-"""
-
-# import libraries here
-import random
-from time import sleep
+def getDistanceToHouse():
+	# Get house distance from user and store as a variable
+	houseAddress = input("What is the address of your house? ")
 
 
-# Gas Level Function
-def gasLevelGauge():
-    gasLevelList = ["Empty", "Low", 'Quarter Tank', "Half Tank", "Three Quarter Tank", "Full Tank"]
-    currentGasLevel = random.choice(gasLevelList)
-    return currentGasLevel
+	# Calculating distance to house
+	houseDistance = random.randint(1,200)
+
+	# Tell user how far their house is
+	time.sleep(1)
+	print("Your house located at " + houseAddress + " is currently " + str(houseDistance) + " miles away.")
+	time.sleep(1)
 
 
-# Variable calling gasLevelGauge function to store its value
-gasLevelIndicator = gasLevelGauge()
- 
-# List of Gas Stations Function
- 
-def listOfGasStations():
-    gasStations = ["shell", "Costco", "Sam's Club", "Buc-ee's", "7/11", "Speedway", "Meijer"]
-    gasStationNearby = random.choice(gasStations)
-    return gasStationNearby
+def generateRandomMiles():
+	# This function generates a random number for use in the getDirections function
+	randomMiles = random.randint(1,5)
+	return randomMiles
+
+
+def getDirections():
+	# Create list of possible driving manuevers to describe directions
+	possibleManuevers = ["Left turn", "Right turn", "Slight left turn", "Slight right turn", "U-Turn", "Go straight"]
 
 # Determine Gas Level & Closest gas station
 def gasLevelAlert():
@@ -96,4 +82,29 @@ def gasLevelAlert():
         print("Your gas tank is full - Yeah! - Congratulations")
         
 gasLevelAlert()
+	# Create list of possible sentence joiners
+	conjunctions = [" and ", " then "]
+	
+	# Update user
+	print("Generating your directions now... please wait.")
+	time.sleep(1)
+	print("Directions have been successfully generated. Please follow the following directions carefully")
 
+
+	# Show directions
+	x = 0
+	while x < 10:
+		print(str(possibleManuevers[random.randint(0, len(possibleManuevers))-1]) + " for " + str(generateRandomMiles()) + " miles")
+		print(conjunctions[random.randint(0, len(conjunctions))-1])
+		x = x + 1
+		time.sleep(1)
+
+	time.sleep(1)
+	print("You have reached your destination!")
+
+
+# Call functions
+getDistanceToHouse()
+getDirections()
+# Thank user for using navigation
+print("Thank you for using the navigation system. Goodbye.")

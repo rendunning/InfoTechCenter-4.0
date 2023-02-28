@@ -173,3 +173,51 @@ def engageCruiseControl():
 
 
 engageCruiseControl()
+
+def systemRadio():
+    # Define a dictionary of stations with genres and songs
+    stations = {
+        1: {
+            "name": "Station 1",
+            "genre": "Pop",
+            "songs": ["'golden hour' by JVKE", "'Kill Bill' by SZA", "'As It Was' by Harry Styles"]
+        },
+        2: {
+            "name": "Station 2",
+            "genre": "Rock",
+            "songs": ["'One' by Metallica", "'Numb' by Linkin park", "'Stairway to Heaven' by Led Zeppelin"]
+        },
+        3: {
+            "name": "Station 3",
+            "genre": "Hip Hop",
+            "songs": ["'XXX Ft. U2' by Kendrick Lamar", "'Without Me' by Eminem", "'The Worst Guys' by Childish Gambino"]
+        }
+    }
+
+    # Ask user if they want to turn on the radio
+    user_input = input("Do you want to turn on the radio? (yes/no): ")
+
+    # If user answers "yes", list the stations and ask them to choose one
+    if user_input.lower() == "yes":
+        print("Here are three different stations with different genres:")
+        for number, details in stations.items():
+            print(number, "-", details["name"], "-", details["genre"])
+        station_choice = input("Please choose a station number (1-3): ")
+        if station_choice.isdigit() and int(station_choice) in stations:
+            chosen_station = stations[int(station_choice)]
+            print("Playing a song from", chosen_station["name"])
+            random_song = random.choice(chosen_station["songs"])
+            print("Playing song:", random_song)
+        else:
+            print("Invalid station choice.")
+
+    # If user answers "no", exit the program
+    elif user_input.lower() == "no":
+        print("Goodbye!")
+        exit()
+
+    # If user gives an invalid response, prompt them to try again
+    else:
+        print("Invalid response. Please enter 'yes' or 'no'.")
+
+systemRadio()

@@ -76,12 +76,48 @@ def gasLevelAlert():
     else:
         print("Your gas tank is full - Yeah!\n")
 
+gasLevelAlert()
+
+"""
+Weather
+"""
+# Create weather condition in a list and choose it randomly
+def weather():
+	weatherForecast = ["snow.", "blizzard.", "rain,", "foggy", "windy", "icy", "sunshine"]
+	weatherCondition = random.choice(weatherForecast)
+	return weatherCondition
+
+# Variable to call weather() once in our VRS()
+weatherAlert = weather()
+
+# VRS() to respond to the weather condition
+def vehicleResponseSystem():
+	if weatherAlert == "snow":
+		print("NWS has changed your alarm by 15 minutes because of the weather forecast of",weatherAlert,".")
+		print("VRS has been engaged only allowing your vehicle to go 45 MPH")
+	elif weatherAlert == "blizzard":
+		print("NWS has changed your alarm by 30 minutes because of the weather forecast of",weatherAlert,".")
+		print("VRS has been engaged only allowing your vehicle to go 35 MPH")
+	elif weatherAlert == "icy":
+		print("NWS has changed your alarm by 60 minutes because of the weather forecast of",weatherAlert,"conditions, please drive carefully.")
+		print("VRS has been engaged only allowing your vehicle to go 25 MPH")
+	elif weatherAlert == "rain":
+		print("NWS is calling for",weatherAlert,"please drive carefully.")
+	elif weatherAlert == "foggy":
+		print("NWS is calling for",weatherAlert,"conditions, please drive carefully.")
+	elif weatherAlert == "windy":
+		print("NWS is calling for",weatherAlert,"conditions, please drive carefully.")
+	else:
+		print("NWS is calling for",weatherAlert,"drive safely and have a wonderful day.")
+
+vehicleResponseSystem()
+
 """
 Radio
 """
 
 def systemRadio():
-    # Define a dictionary of stations with genres and songs
+# Define a dictionary of stations with genres and songs
     stations = {
         1: {
             "name": "Station 1",
@@ -101,7 +137,7 @@ def systemRadio():
     }
 
     # Ask user if they want to turn on the radio
-    user_input = input("Do you want to turn on the radio? (yes/no): ")
+    user_input = input("\nDo you want to turn on the radio? (yes/no): ")
 
     # If user answers "yes", list the stations and ask them to choose one
     if user_input.lower() == "yes":
@@ -117,15 +153,16 @@ def systemRadio():
         else:
             print("Invalid station choice.")
 
-    # If user answers "no", exit the program
+    # If user answers "no"
     elif user_input.lower() == "no":
         print("Goodbye!")
-        exit()
 
     # If user gives an invalid response, prompt them to try again
     else:
         print("Invalid response. Please enter 'yes' or 'no'.")
-        
+
+systemRadio()
+
 """
 Navigation
 """
@@ -133,7 +170,7 @@ Navigation
 # This function will take the input of your house and will tell you how far away it is from your current location.
 
 # Show loading message
-print("Navigation Services 1.0 is loading...")
+print("\nNavigation Services 1.0 is loading...")
 time.sleep(3)
 print("Navigation has loaded successfuly.")
 time.sleep(1)
@@ -178,9 +215,11 @@ def getDirections():
 
     time.sleep(1)
     print("You have reached your destination!")
+    # Thank user for using navigation
+    print("Thank you for using the navigation system. Goodbye.")
 
-# Thank user for using navigation
-print("Thank you for using the navigation system. Goodbye.")
+getDistanceToHouse()
+getDirections()
 
 """
 Cruise Control
@@ -189,7 +228,7 @@ Cruise Control
 # This program will ask you what speed you would like to maintain and turn off cruise control.
 
 def engageCruiseControl():
-    answer = input("Would you like to engage cruise control, yes or no: ").lower()
+    answer = input("\nWould you like to engage cruise control, yes or no: ").lower()
     if answer == "yes":
         speed = int(input("What speed would you like to cruise at: "))
         if speed > 75:
@@ -209,12 +248,5 @@ def engageCruiseControl():
     else:
         print("Please enter yes or no.")
 
-
-"""
-Call functions here
-"""
-gasLevelAlert()
-systemRadio()
-getDistanceToHouse()
-getDirections()
 engageCruiseControl()
+

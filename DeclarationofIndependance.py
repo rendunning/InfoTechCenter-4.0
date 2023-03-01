@@ -1,29 +1,18 @@
 # Programmer: Lauren Dunning
-# Date: 1.31.2023
-# Program: InfoTech Center 4.0 - Gasoline
+# Date: 3.1.2023
+# Program: InfoTech Center 4.1
 
 """
-We will create a Function that will tell us out Fuel Gauge level
-    - Create a List with Gas Levels
-    - Randomize and choose from the list to determine our gas level
-
-Create a Functon to determine our closest Gas Station
-    - Create a List of gas stations
-    - Randomly choose a gas station from the list
-
-Create a Function to determine our gas level and closest gas station
-    - PrintGas level
-    - Print Closest Gas Station
+Import libraries here
 """
-
-# import libraries here
 import random
-from time import sleep
-
-#Import Libraries Here
 import time
+from time import sleep
 import sys
 
+"""
+Welcome Screen
+"""
 print('\n\033[1;34;48m Welcome to InfoTechCenter')
 
 x = 0
@@ -41,26 +30,24 @@ while x != 20:
     if a == 4:
         a = 0
     if x == 20:
-        print('\033[1;32;35m Done!')
-        
-# Gas Level Function
+        print('\033[1;32;35m Done!\n')
+
+"""
+Gas Level
+"""
 def gasLevelGauge():
     gasLevelList = ["Empty", "Low", 'Quarter Tank', "Half Tank", "Three Quarter Tank", "Full Tank"]
     currentGasLevel = random.choice(gasLevelList)
     return currentGasLevel
 
-
 # Variable calling gasLevelGauge function to store its value
 gasLevelIndicator = gasLevelGauge()
 
-
 # List of Gas Stations Function
-
 def listOfGasStations():
     gasStations = ["shell", "Costco", "Sam's Club", "Buc-ee's", "7/11", "Speedway", "Meijer"]
     gasStationNearby = random.choice(gasStations)
     return gasStationNearby
-
 
 # Determine Gas Level & Closest gas station
 def gasLevelAlert():
@@ -69,132 +56,29 @@ def gasLevelAlert():
     if gasLevelIndicator == "Empty":
         print("***WARNING YOUR TANK IS EMPTY***")
         sleep(1)
-        print("Calling Emergency Contact")
+        print("Calling Emergency Contact\n")
     elif gasLevelIndicator == "Low":
         print("*****Warning*****")
         sleep(1)
         print("Your gas tank is extremely low; checking Google Maps for the closest gas station.")
         sleep(1)
-        print("The closest gas station is", listOfGasStations(), "which is", milesToGasStationLow, "miles away.")
+        print("The closest gas station is", listOfGasStations(), "which is", milesToGasStationLow, "miles away.\n")
     elif gasLevelIndicator == "Quarter Tank":
         print("***Warning***")
         sleep(1)
         print("Your gas tank is at a Quarter Tank and the closest gas station is", listOfGasStations, "which is",
-              milesToGasStationQuarterTank, "miles away.")
+              milesToGasStationQuarterTank, "miles away.\n")
     elif gasLevelIndicator == "Half Tank":
-        print("Your has tank is a half of a tank full, which is plenty of gas to make it to your destinations today.")
+        print("Your has tank is a half of a tank full, which is plenty of gas to make it to your destinations today.\n")
     elif gasLevelIndicator == "Three Quarter Tank":
         print(
-            "Your gas tank is at three quarters of a tank which is plenty of gas to make it to your destination today.")
+            "Your gas tank is at three quarters of a tank which is plenty of gas to make it to your destination today.\n")
     else:
-        print("Your gas tank is full - Yeah! - Congratulations")
-
-
-gasLevelAlert()
-
-# Programmer: Lucas Campbell
-# Date: 2/21/2023
-# Program: Navigation
-
-# This function will take the input of your house and it will tell you how far away it is from your current location.
-
-
-# Import libraries here
-import random
-import time
-
-# Show loading message
-print("Navigation Services 1.0 is loading...")
-time.sleep(3)
-print("Navigation has loaded successfuly.")
-time.sleep(1)
-
-
-def getDistanceToHouse():
-    # Get house distance from user and store as a variable
-    houseAddress = input("What is the address of your house? ")
-
-    # Calculating distance to house
-    houseDistance = random.randint(1, 200)
-
-    # Tell user how far their house is
-    time.sleep(1)
-    print("Your house located at " + houseAddress + " is currently " + str(houseDistance) + " miles away.")
-    time.sleep(1)
-
-
-def generateRandomMiles():
-    # This function generates a random number for use in the getDirections function
-    randomMiles = random.randint(1, 5)
-    return randomMiles
-
-
-def getDirections():
-    # Create list of possible driving manuevers to describe directions
-    possibleManuevers = ["Left turn", "Right turn", "Slight left turn", "Slight right turn", "U-Turn", "Go straight"]
-
-    # Create list of possible sentence joiners
-    conjunctions = [" and ", " then "]
-
-    # Update user
-    print("Generating your directions now... please wait.")
-    time.sleep(1)
-    print("Directions have been successfully generated. Please follow the following directions carefully")
-
-    # Show directions
-    x = 0
-    while x < 10:
-        print(str(possibleManuevers[random.randint(0, len(possibleManuevers)) - 1]) + " for " + str(
-            generateRandomMiles()) + " miles")
-        print(conjunctions[random.randint(0, len(conjunctions)) - 1])
-        x = x + 1
-        time.sleep(1)
-
-    time.sleep(1)
-    print("You have reached your destination!")
-
-
-# Call functions
-getDistanceToHouse()
-getDirections()
-# Thank user for using navigation
-print("Thank you for using the navigation system. Goodbye.")
-
-# Programmer: Lauren Dunning
-# Date: 2/21/2023
-# Program: Cruise Control
+        print("Your gas tank is full - Yeah!\n")
 
 """
-This program will ask you what speed you would like to maintain
-and turn off cruise control.
+Radio
 """
-
-from time import sleep
-
-
-def engageCruiseControl():
-    answer = input("Would you like to engage cruise control, yes or no: ").lower()
-    if answer == "yes":
-        speed = int(input("What speed would you like to cruise at: "))
-        if speed > 75:
-            print("Slow down buckaroo, that's faster than interstate highway speed limits. Try a different speed.")
-        else:
-            print("Now cruising at", speed, "MPH.\n")
-            sleep(4)
-            turnoff = input("Press X to turn off cruise control: ")
-            if turnoff == "X":
-                print("Cruise control has been disabled.")
-            elif turnoff == "x":
-                print("Cruise control has been disabled.")
-            else:
-                print("Cruise control is still active at", speed, "MPH.")
-    elif answer == "no":
-        print("Cruise control request cancelled.")
-    else:
-        print("Please enter yes or no.")
-
-
-engageCruiseControl()
 
 def systemRadio():
     # Define a dictionary of stations with genres and songs
@@ -241,5 +125,96 @@ def systemRadio():
     # If user gives an invalid response, prompt them to try again
     else:
         print("Invalid response. Please enter 'yes' or 'no'.")
+        
+"""
+Navigation
+"""
 
+# This function will take the input of your house and will tell you how far away it is from your current location.
+
+# Show loading message
+print("Navigation Services 1.0 is loading...")
+time.sleep(3)
+print("Navigation has loaded successfuly.")
+time.sleep(1)
+
+def getDistanceToHouse():
+    # Get house distance from user and store as a variable
+    houseAddress = input("What is the address of your house? ")
+
+    # Calculating distance to house
+    houseDistance = random.randint(1, 200)
+
+    # Tell user how far their house is
+    time.sleep(1)
+    print("Your house located at " + houseAddress + " is currently " + str(houseDistance) + " miles away.")
+    time.sleep(1)
+
+def generateRandomMiles():
+    # This function generates a random number for use in the getDirections function
+    randomMiles = random.randint(1, 5)
+    return randomMiles
+
+def getDirections():
+    # Create list of possible driving manuevers to describe directions
+    possibleManuevers = ["Left turn", "Right turn", "Slight left turn", "Slight right turn", "U-Turn", "Go straight"]
+
+    # Create list of possible sentence joiners
+    conjunctions = [" and ", " then "]
+
+    # Update user
+    print("Generating your directions now... please wait.")
+    time.sleep(1)
+    print("Directions have been successfully generated. Please follow the following directions carefully")
+
+    # Show directions
+    x = 0
+    while x < 10:
+        print(str(possibleManuevers[random.randint(0, len(possibleManuevers)) - 1]) + " for " + str(
+            generateRandomMiles()) + " miles")
+        print(conjunctions[random.randint(0, len(conjunctions)) - 1])
+        x = x + 1
+        time.sleep(1)
+
+    time.sleep(1)
+    print("You have reached your destination!")
+
+# Thank user for using navigation
+print("Thank you for using the navigation system. Goodbye.")
+
+"""
+Cruise Control
+"""
+
+# This program will ask you what speed you would like to maintain and turn off cruise control.
+
+def engageCruiseControl():
+    answer = input("Would you like to engage cruise control, yes or no: ").lower()
+    if answer == "yes":
+        speed = int(input("What speed would you like to cruise at: "))
+        if speed > 75:
+            print("Slow down buckaroo, that's faster than interstate highway speed limits. Try a different speed.")
+        else:
+            print("Now cruising at", speed, "MPH.\n")
+            sleep(4)
+            turnoff = input("Press X to turn off cruise control: ")
+            if turnoff == "X":
+                print("Cruise control has been disabled.")
+            elif turnoff == "x":
+                print("Cruise control has been disabled.")
+            else:
+                print("Cruise control is still active at", speed, "MPH.")
+    elif answer == "no":
+        print("Cruise control request cancelled.")
+    else:
+        print("Please enter yes or no.")
+
+
+"""
+Call functions here
+"""
+gasLevelAlert()
 systemRadio()
+getDistanceToHouse()
+getDirections()
+engageCruiseControl()
